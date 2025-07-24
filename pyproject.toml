@@ -11,3 +11,6 @@ authors = [{ name = "David Sviták", email = "svitakda@gmail.com" }, {name = "Al
 license = "GNU"
 dependencies = ["numpy", "matplotlib", "scipy"]
 requires-python = ">=3.8"
+
+[tool.setuptools]
+packages = ["LongHCPulsed"]
