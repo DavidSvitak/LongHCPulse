@@ -8,7 +8,8 @@ version = "1.2.0"
 description = "Code for processing long pulse heat capacity data taken on a Quantum Design PPMS "
 readme = "README.md"
 authors = [{ name = "David Sviták", email = "svitakda@gmail.com" }, {name = "Allen Scheie", email = "scheie@jhu.edu"}]
-license = "GNU"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
 dependencies = ["numpy", "matplotlib", "scipy"]
 requires-python = ">=3.8"
 
