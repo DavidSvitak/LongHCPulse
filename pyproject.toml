@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "LongHCPulse"
+version = "1.2.0"
+description = "Code for processing long pulse heat capacity data taken on a Quantum Design PPMS "
+readme = "README.md"
+authors = [{ name = "David Sviták", email = "svitakda@gmail.com" }, {name = "Allen Scheie", email = "scheie@jhu.edu"}]
+license = { text = "MIT" }
+dependencies = ["numpy", "matplotlib", "scipy"]
+requires-python = ">=3.8"
