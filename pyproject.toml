@@ -15,6 +15,3 @@ requires-python = ">=3.8"
 
 [tool.setuptools]
 packages = ["LongHCPulse"]
-
-[tool.setuptools.packages.find]
-where = ["LongHCPulse"]
