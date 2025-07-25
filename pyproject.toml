@@ -14,4 +14,7 @@ dependencies = ["numpy", "matplotlib", "scipy"]
 requires-python = ">=3.8"
 
 [tool.setuptools]
-packages = ["LongHCPulsed"]
+packages = ["LongHCPulse"]
+
+[tool.setuptools.packages.find]
+where = ["LongHCPulse"]
