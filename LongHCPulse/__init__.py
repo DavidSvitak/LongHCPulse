@@ -1,1 +1,1 @@
-from LongHCPulse import LongHCPulse
+from .LongHCPulse import LongHCPulse
