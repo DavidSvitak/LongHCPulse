@@ -272,13 +272,14 @@ class LongHCPulse:
 
 					#Eliminate values too close to max T or min T
 					if (((Ts - self.Tb[i])/self.Tb[i] < 0.1) or ((Ts - self.Tb[i]) < 0.025)):  
-						SData[i,2,j,k] = np.nan
-
+						#SData[i,2,j,k] = np.nan
+						pass
 					if k == 1: #Eliminate values too close to max T on heating
 						if (maxT  - Ts)/(maxT-self.Tb[i]) < 0.15:  
-							SData[i,2,j,k] = np.nan
+							#SData[i,2,j,k] = np.nan
+							pass
 					elif k == 0:  #Eliminate values to close to min T on cooling
-						if (maxT  - Ts)/(maxT-self.Tb[i]) < 0.16:  
+						if (maxT  - Ts)/(maxT-self.Tb[i]) < 0.06:  
 							SData[i,2,j,k] = np.nan
 
 				# first two and last two data points can't have value: no n-1 term
