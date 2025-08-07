@@ -204,7 +204,7 @@ class LongHCPulse:
 			self.smoothedData[i,1,:,1] = self._movingaverage(self.rawdata[i,1,:,1],n)
 			self.smoothedData[i,0,:,:] = self.rawdata[i,0,:,:]
 
-	def heatcapacity(self, smoothlevel=0, StaticOffset = 0.1):
+	def heatcapacity(self, T_limit: tuple = (0.1,  0.025), T_lim_heating: float = 0.15, T_lim_cooling: float = 0.06, smoothlevel=0, StaticOffset = 0.1):
 		print(" - Computing Heat Capacity...")
 		# Initialize arrays
 		lenSD = len(self.smoothedData)
@@ -271,16 +271,19 @@ class LongHCPulse:
 					####################################################
 
 					#Eliminate values too close to max T or min T
-					if (((Ts - self.Tb[i])/self.Tb[i] < 0.1) or ((Ts - self.Tb[i]) < 0.025)):  
-						#SData[i,2,j,k] = np.nan
-						pass
-					if k == 1: #Eliminate values too close to max T on heating
-						if (maxT  - Ts)/(maxT-self.Tb[i]) < 0.15:  
-							#SData[i,2,j,k] = np.nan
-							pass
-					elif k == 0:  #Eliminate values to close to min T on cooling
-						if (maxT  - Ts)/(maxT-self.Tb[i]) < 0.06:  
+					if T_limit is not None and len(T_limit) == 2:
+						if (((Ts - self.Tb[i])/self.Tb[i] < T_limit[0]) or ((Ts - self.Tb[i]) < T_limit[1])):  
 							SData[i,2,j,k] = np.nan
+							
+					if k == 1: #Eliminate values too close to max T on heating
+						if T_lim_heating is not None:
+							if (maxT  - Ts)/(maxT-self.Tb[i]) < T_lim_heating:  
+								SData[i,2,j,k] = np.nan
+								
+					elif k == 0:  #Eliminate values to close to min T on cooling
+						if T_lim_cooling is not None:
+							if (maxT  - Ts)/(maxT-self.Tb[i]) < T_lim_cooling:  
+								SData[i,2,j,k] = np.nan
 
 				# first two and last two data points can't have value: no n-1 term
 				SData[i,2,0,k] = np.nan  
