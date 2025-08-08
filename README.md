@@ -1,4 +1,12 @@
 # LongHCPulse
+## Installation
+
+You can now install the package locally using `pip`:
+
+```bash
+pip install git+https://github.com/asche1/LongHCPulse.git
+```
+
 ## V. 1.3.3
 
 Code for processing long pulse heat capacity data taken on a Quantum Design PPMS.
