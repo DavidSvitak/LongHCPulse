@@ -4,7 +4,7 @@
 You can now install the package locally using `pip`:
 
 ```bash
-pip install git+https://github.com/asche1/LongHCPulse.git
+uv pip install LongHCPulse
 ```
 
 ## V. 1.3.3
